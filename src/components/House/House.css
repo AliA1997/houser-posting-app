@@ -1,0 +1,35 @@
+.house-div {
+    width: 95%;
+    font-weight: bolder;
+    background: #DEDEDE;
+    color: #3b5249;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.description-div {
+    width: 66%;
+    text-align: left;
+    margin-bottom: 1em;
+}
+.description-div > p {
+    margin: 0.75em;
+}
+.close-icon {
+    margin-left: 96%;
+    font-size: 2.5em;
+}
+.image-div {
+    width: 33%;
+}
+.see-icon {
+    font-size: 3em;
+}
+.see-button {
+  text-align: right;
+  background: transparent;
+  border: 1px solid transparent;
+  margin-left: 20%;
+  width: 80%;
+}

@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Dashboard from './components/Dashboard/Dashboard';
+import routes from './routes';
 import './App.css';
 
 class App extends Component {
+  
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Header />
+        {routes}
       </div>
     );
   }
 }
-
-export default App;
+const mapStateToProps = state => {
+  return state;
+}
+export default withRouter(connect(mapStateToProps)(App));
