@@ -26,8 +26,7 @@
 - Create a ducks folder within src folder.
     - Create a reducer.js file for reducer
     - Create a store.js file for configuring store
-- Create a routes file.
-
+- Create a routes file  for routes.
 ## Step 3 Configure your backend.
 - Go to your package.json and setup proxy, and main.
     - main: server/,
@@ -66,4 +65,20 @@
             - app.get('/api/houses', ctrl.getHouses);
         - For retrieving a specific house in HousePage component using request parameters.
             - app.get('/api/houses/:id', ctrl.getHouse);
-        - 
+        - For creating a new house, no need for request parameter in this case becuase it is just adding house, there is no need for a id request parameter.
+            - app.post('/api/houses', ctrl.createHouse);
+        - For editing a house, need request parameters, since retrieving a specific house.
+            - app.put('/api/houses/:id', ctrl.editHouse);
+        - For deleting a house, need request parameters, since retrieving a specific house.
+            - app.delete('/api/houses/:id', ctrl.deleteHouses);
+    - Setup controller methods.
+        - getHouses method
+            - retrieve all houses.
+        - getHouse method 
+            - retrieve a specific house based on id request parameter.
+        - createHouse method 
+            - create a house
+        - editHouse method.
+            - edit a specific house based on id request parameter.
+        - deleteHouse method.
+            - delete a specific house based on id request parameter.
