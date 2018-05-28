@@ -1,13 +1,13 @@
-
+//InitialState or the default state of reducer.
 const initialState = {
-    name: '',
-    address: '',
-    city: '',
-    state: '',
-    zipcode: '',  
-    monthly_mortgage_amount: '',
-    monthly_rent: '',
-    imageurl: ''      
+    nameInput: '',
+    addressInput: '',
+    cityInput: '',
+    stateInput: '',
+    zipcodeInput: '',  
+    monthly_mortgage_amountInput: '',
+    monthly_rentInput: '',
+    imageurlInput: ''      
 };
 
 //Action types
@@ -22,28 +22,30 @@ const CHANGE_MONTHLY_RENT = 'CHANGE_MONTHLY_RENT';
 
 
 export default (state = initialState, action) => {
+    //Use a switch statement on the actions type that is returned by the action creator.
     switch (action.type) {
         case CHANGE_NAME: 
-        return {...state, name: action.payload};
+        return {...state, nameInput: action.payload};
         case CHANGE_ADDRESS: 
-        return {...state, address: action.payload};
+        return {...state, addressInput: action.payload};
         case CHANGE_CITY: 
-        return {...state, city: action.payload};
+        return {...state, cityInput: action.payload};
         case CHANGE_STATE: 
-        return {...state, state: action.payload};
+        return {...state, stateInput: action.payload};
         case CHANGE_ZIPCODE: 
-        return {...state, zipcode: action.payload};
+        return {...state, zipcodeInput: action.payload};
         case CHANGE_MONTHLY_MORTGAGE_AMOUNT: 
-        return {...state, monthly_mortgage_amount: action.payload};
+        return {...state, monthly_mortgage_amountInput: action.payload};
         case CHANGE_MONTHLY_RENT: 
-        return {...state, monthly_rent: action.payload};
+        return {...state, monthly_rentInput: action.payload};
         case CHANGE_IMAGEURL: 
-        return {...state, imageurl: action.payload};
+        return {...state, imageurlInput: action.payload};
         default: 
         return state;
     }
 };
 
+//Define the action creator for handling input changes.
 export function handleChange(type, value) {
     switch(type) {
         case 'name':

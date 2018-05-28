@@ -1,0 +1,18 @@
+.header-div {
+    height: 10vh;
+    width: 100vw;
+    background: #519872;
+    color: #E5F4EC;
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between
+}
+.add-new-property-button {
+    padding: 10px;
+    color: #E5F4EC;
+}
+/*
+.logo {
+    color: #D3D3D3;
+    font-size: 3em;
+} */

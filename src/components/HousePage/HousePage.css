@@ -1,0 +1,9 @@
+.housepage-div {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.house-description > * {
+    margin: 20px;
+}

@@ -10,7 +10,7 @@ import { Route, Switch } from 'react-router-dom';
 const routes = (
     <Switch>
         <Route exact path='/' component={Dashboard} />
-        <Route exact path='/houses/:id' component={HousePage} />
+        <Route path='/houses/:id' component={HousePage} />
         <Route exact path='/wizard' component={Wizard} />
         <Route path='/wizard/steptwo' component={StepTwo} />        
         <Route path='/wizard/stepthree' component={StepThree} />                        

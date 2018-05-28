@@ -1,16 +1,23 @@
 import React, {Component} from 'react';
+//Use for creating a new house.
 import axios from 'axios';
+//import the action creator to handle input changes 
 import { handleChange } from '../../ducks/reducer';
 import { Link } from 'react-router-dom';
+//import connect to connect component to store.
 import { connect } from 'react-redux';
+
 class StepThree extends Component {
     constructor() {
         super();
+        //Bind the createHouse to component since props is returned undefined when not bind.
         this.createHouse = this.createHouse.bind(this);
     }
     createHouse() {
-        const { name, address, city, state, zipcode, imageurl, monthly_mortgage_amount, monthly_rent } = this.props;
-        axios.post('/api/houses', { name, address, city, state, zipcode, imageurl, monthly_mortgage_amount, monthly_rent })
+        const { nameInput, addressInput, cityInput, stateInput, zipcodeInput, imageurlInput, 
+            monthly_mortgage_amountInput, monthly_rentInput } = this.props;
+        axios.post('/api/houses', { nameInput, addressInput, cityInput, stateInput, zipcodeInput,
+             imageurlInput, monthly_mortgage_amountInput, monthly_rentInput })
         .then(res => {
             console.log(res.data.newHouse);
         }).catch(err => console.log('Axios Post House Error----------', err));

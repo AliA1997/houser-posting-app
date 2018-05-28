@@ -1,72 +1,42 @@
 import React, {Component} from 'react';
 import { handleChange } from '../../ducks/reducer';
 import { Link } from 'react-router-dom';
+//import the connect method from react-redux
 import { connect } from 'react-redux';
-import axios from 'axios';
 class Wizard extends Component {
     constructor() {
         super();
-        this.state = {
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zipcode: '',            
-        }
-        this.handleChange = this.handleChange.bind(this);
-        this.createHouse = this.createHouse.bind(this);
     }
-    createHouse() {
-        const { name, address, city, state, zipcode } = this.state;
-        axios.post('/api/houses', { name, address, city, state, zipcode })
-        .then(res => {
-            console.log(res.data.newHouse);
-        }).catch(err => console.log('Axios Post House Error----------', err));
-    }
-    handleChange(type, value) {
-        console.log(value);
-        switch(type) {
-            case 'name':
-            return this.setState({name: value})
-            case 'address':
-            return this.setState({address: value})
-            case 'city':
-            return this.setState({city: value})
-            case 'state':
-            return this.setState({state: value})
-            case 'zipcode':
-            return this.setState({zipcode: value})
-            default:
-            return;
-        }
-    }
+
     render() {
-        console.log(this.props)
-        const { handleChange } = this;
+        console.log(this.props);
+        //Destruct the dispatch from props, so can use handleChange action creator to use input changes.
+        const { dispatch } = this.props;
         return (
             <form>
                 <p>Name</p>
-                <input type='text' onChange={e => handleChange('name', e.target.value)} />
+                <input type='text' onChange={e => dispatch(handleChange('name', e.target.value))} />
                 <p>Address</p>
-                <input type='text' onChange={e => handleChange('address', e.target.value)} />
+                <input type='text' onChange={e => dispatch(handleChange('address', e.target.value))} />
                 <p>City</p>
-                <input type='text' onChange={e => handleChange('city', e.target.value)} />
+                <input type='text' onChange={e => dispatch(handleChange('city', e.target.value))} />
                 <p>State</p>
-                <input type='text' onChange={e => handleChange('state', e.target.value)} />
+                <input type='text' onChange={e => dispatch(handleChange('state', e.target.value))} />
                 <p>Zipcode</p>
-                <input type='text' onChange={e => handleChange('zipcode', e.target.value)} />
-                <button onClick={this.createHouse}>Create House</button>
+                <input type='text' onChange={e => dispatch(handleChange('zipcode', e.target.value))} />
                 <button><Link to='/wizard/steptwo'>Next Step</Link></button>
             </form>
         );
     }
 };
-
+//Map the state of reducer to props.
 const mapStateToProps = state => {
     return state;
 }
+
 // const mapDispatchToProps = {
 //     handleChange
 // }
 
+//Use connect and double invoke using the component and state of reducer.
 export default connect(mapStateToProps)(Wizard);
