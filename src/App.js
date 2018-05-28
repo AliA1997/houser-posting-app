@@ -8,11 +8,11 @@ import routes from './routes';
 import './App.css';
 
 class App extends Component {
-  
   render() {
+    const { title } = this.props;
     return (
       <div className="App">
-        <Header />
+        <Header title={title}/>
         {routes}
       </div>
     );

@@ -1,5 +1,6 @@
 //InitialState or the default state of reducer.
 const initialState = {
+    title: 'Houser',
     nameInput: '',
     addressInput: '',
     cityInput: '',
